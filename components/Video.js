@@ -354,7 +354,8 @@ class Video extends Component {
       playInBackground,
       playWhenInactive,
       controlDuration,
-      hideFullScreenControl
+      hideFullScreenControl,
+      isHideControl,
     } = this.props
 
     const inline = {
@@ -384,6 +385,7 @@ class Video extends Component {
         }
         <VideoPlayer
           {...checkSource(url)}
+          isHideControl={ isHideControl }
           paused={paused}
           resizeMode={resizeMode}
           repeat={loop}
