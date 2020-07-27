@@ -385,7 +385,6 @@ class Video extends Component {
         }
         <VideoPlayer
           {...checkSource(url)}
-          isHideControl={ isHideControl }
           paused={paused}
           resizeMode={resizeMode}
           repeat={loop}
@@ -406,6 +405,7 @@ class Video extends Component {
           onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
         />
         <Controls
+          isHideControl={ isHideControl }
           ref={(ref) => { this.controls = ref }}
           toggleMute={() => this.toggleMute()}
           toggleFS={() => this.toggleFS()}
