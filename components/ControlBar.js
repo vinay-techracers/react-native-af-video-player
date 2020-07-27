@@ -24,13 +24,15 @@ const ControlBar = (props) => {
     fullscreen,
     theme,
     inlineOnly,
-    hideFullScreenControl
+    hideFullScreenControl,
+    isHideControl,
   } = props
 
   return (
     <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.75)']} style={styles.container}>
       <Time time={currentTime} theme={theme.seconds} />
       <Scrubber
+        isHideControl={ isHideControl }
         onSeek={pos => onSeek(pos)}
         onSeekRelease={pos => onSeekRelease(pos)}
         progress={progress}
