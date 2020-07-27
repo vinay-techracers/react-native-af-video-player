@@ -27,11 +27,12 @@ const styles = StyleSheet.create({
 
 const Scrubber = (props) => {
   const trackColor = 'rgba(255,255,255,0.5)'
-  const { progress, theme, onSeek, onSeekRelease } = props
+  const { progress, theme, onSeek, onSeekRelease, isHideControl } = props
   return (
     <View style={styles.container}>
       { Platform.OS === 'ios' ?
         <Slider
+          disabled={ isHideControl }
           onValueChange={val => onSeek(val)}
           onSlidingComplete={val => onSeekRelease(val)}
           value={progress === Number.POSITIVE_INFINITY ? 0 : progress}
@@ -44,6 +45,7 @@ const Scrubber = (props) => {
         />
       :
         <RNSlider
+          disabled={ isHideControl }
           style={styles.slider}
           onValueChange={val => onSeek(val)}
           onSlidingComplete={val => onSeekRelease(val)}
