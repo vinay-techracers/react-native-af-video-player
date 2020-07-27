@@ -128,7 +128,8 @@ class Controls extends Component {
       duration,
       theme,
       inlineOnly,
-      hideFullScreenControl
+      hideFullScreenControl,
+      isHideControl,
     } = this.props
 
     const { center, ...controlBar } = theme
@@ -152,6 +153,7 @@ class Controls extends Component {
             />
           </Animated.View>
           <ControlBar
+            isHideControl={ isHideControl }
             toggleFS={() => this.props.toggleFS()}
             toggleMute={() => this.props.toggleMute()}
             togglePlay={() => this.props.togglePlay()}
